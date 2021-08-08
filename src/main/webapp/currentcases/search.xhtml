@@ -1,0 +1,64 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+        xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:o="http://omnifaces.org/ui"
+        xmlns:of="http://omnifaces.org/functions"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:b="http://bootsfaces.net/ui"
+        template="/WEB-INF/jsf-templates/layout.xhtml">
+
+    <ui:param name="title" value="Find Current Cases By Local Geographic Area"/>
+
+    <ui:define name="maincontent">
+
+        <b:jumbotron>
+            <h1>Find COVID19 results for a location</h1>
+        </b:jumbotron>
+
+        <b:messages id="messages"/>
+
+        <b:form>
+
+            <b:panel title="Current Cases By Local Geographic Area Details"
+                     collapsible="false"
+            >
+                <b:inputText
+                        id="latitude"
+                        label="Latitude"
+                        value="#{currentCurrentCasesByLocalGeographicAreaSearchController.latitude}">
+                </b:inputText>
+
+                <b:inputText
+                        id="longitude"
+                        label="Longitude"
+                        value="#{currentCurrentCasesByLocalGeographicAreaSearchController.longitude}">
+                    <b:focus/> <!-- set focus on the first editable field -->
+                </b:inputText>
+
+
+
+            </b:panel>
+
+            <b:commandButton value="Search"
+                             look="primary"
+                             iconAwesome="search"
+                             action="#{currentCurrentCasesByLocalGeographicAreaSearchController.onSearch()}"
+
+                             />
+
+            <b:commandButton value="Clear"
+                             look="secondary"
+                             action="#{currentCurrentCasesByLocalGeographicAreaSearchController.onClear()}"
+            />
+
+        </b:form>
+
+    </ui:define>
+
+</ui:composition>

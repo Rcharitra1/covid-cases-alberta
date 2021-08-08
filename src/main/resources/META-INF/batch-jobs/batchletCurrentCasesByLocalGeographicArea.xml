@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="batchletCurrentCasesByLocalGeographicArea"
+     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+     version="1.0">
+
+    <properties>
+    	<property name="input_file" value="/home/user2015/Downloads/COVID-19_in_Alberta__Current_cases_by_local_geographic_area.csv" />
+    </properties>
+    <step id="step1">
+
+        <listeners>
+            <listener ref="currentCasesByLocalGeographicAreaJobListener" />
+        </listeners>
+
+        <batchlet ref="currentCasesByLocalGeographicAreaBatchlet"/>
+    </step>
+
+</job>
